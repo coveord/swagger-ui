@@ -18,6 +18,14 @@ SwaggerUi.Views.Oauth2View = Backbone.View.extend({
 
     render: function () {
         this.$el.html(this.template(this.model.toJSON()));
+		
+        // Select all scopes by default.
+        this.$el.find('.oauth-scope').prop('checked', true);
+        var self = this;
+        
+        this.$el.find('.oauth-scope').each(function(i, scope) {
+            self.model.setScopes($(scope).data('scope'), true);
+        });
 
         return this;
     },
