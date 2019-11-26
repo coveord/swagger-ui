@@ -46,7 +46,7 @@ Handlebars.registerHelper('renderTextParam', function(param) {
         idAtt = ' id=\'' + valueId + '\'';
     }
 
-    if (defaultValue) {
+    if (defaultValue || defaultValue === 0) {
       defaultValue = sanitizeHtml(defaultValue);
     } else {
       defaultValue = '';
